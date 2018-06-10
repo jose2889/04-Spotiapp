@@ -12,6 +12,9 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ROUTES } from './app.routes';
 import { ErrorComponent } from './components/shared/error/error.component';
 
+//servicios
+import { SpotifyService } from './services/spotify.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { ErrorComponent } from './components/shared/error/error.component';
     HttpClientModule,
     RouterModule.forRoot(ROUTES, {useHash: true} )
   ],
-  providers: [],
+  providers: [SpotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
