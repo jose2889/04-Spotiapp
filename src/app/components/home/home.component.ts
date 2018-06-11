@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
+import { BPClient } from 'blocking-proxy';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { SpotifyService } from '../../services/spotify.service';
 })
 export class HomeComponent implements OnInit {
 
+  loading:boolean = true;
   nuevasCanciones:any[] =[];
 
   constructor(private servicio:SpotifyService) { 
@@ -16,6 +18,7 @@ export class HomeComponent implements OnInit {
     this.servicio.getNewRelease().subscribe( (data:any) => {
       console.log(data);
       this.nuevasCanciones = data;
+      this.loading = false;
     });
 
   }
