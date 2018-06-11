@@ -23,7 +23,7 @@ import { SpotifyService } from './services/spotify.service';
     SearchComponent,
     ArtistaComponent,
     NavbarComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
