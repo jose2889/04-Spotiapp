@@ -6,21 +6,41 @@ import { query } from '@angular/core/src/animation/dsl';
 @Injectable()
 export class SpotifyService {
 
+  token:string;
+
   constructor(private http:HttpClient) {
-    console.log("listo el servicio");
+  
    }
 
    getQuery(query: string){
 
+    let token = this.getToken();
+    console.log("el token generado es: "+token);
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQA7dOTpjsqse3ivnbd-fbb-y0C4Pc6mdZ8bVHmsX05oBy8jvoznZnA30Z3bXtpvlZpEZGo8PnkrSRCDGVI'
+      'Authorization': `Bearer ${token}`
     });
-
+    console.log(headers);
     const url = `https://api.spotify.com/v1/${query}`;
 
     return this.http.get(url,{headers})
 
    }
+   getToken(){
+
+    
+   const headers = new HttpHeaders({
+    'Content-Type':'application/x-www-form-urlencoded'
+    });
+    
+    let body = `client_id=0a7e097439284671a4798edfc696c5da&client_secret=5a8947da16af42418e68da797ae494df&grant_type=client_credentials`;
+    this.http.post('https://accounts.spotify.com/api/token',body,{headers})
+    .subscribe((response:any)=>{
+      this.token = response.access_token;
+     console.log("este es el token "+response.access_token);
+    });
+
+    return this.token;
+    }
 
    getNewRelease(){  
     return this.getQuery('browse/new-releases').pipe( map ( data => data['albums'].items ));
