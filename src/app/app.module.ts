@@ -11,14 +11,15 @@ import { ArtistaComponent } from './components/artista/artista.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ROUTES } from './app.routes';
 import { ErrorComponent } from './components/shared/error/error.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 
 //servicios
 import { SpotifyService } from './services/spotify.service';
 
 //pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
-import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
-import { LoadingComponent } from './components/shared/loading/loading.component';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     AppComponent,
     HomeComponent,
     SearchComponent,
+    DomseguroPipe,
     ArtistaComponent,
     NavbarComponent,
     ErrorComponent,
