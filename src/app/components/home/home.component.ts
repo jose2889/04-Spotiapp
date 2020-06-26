@@ -17,24 +17,26 @@ export class HomeComponent implements OnInit {
 
   constructor(private servicio:SpotifyService) { 
 
-    this.servicio.getNewRelease().subscribe( (data:any) => {
-      console.log(data);
-      this.nuevasCanciones = data;
-      this.loading = false;
-    }, (errorService) => {
-      this.error = true;
-      this.loading = false;
-      this.errorMsj = errorService.error.error.message; 
-      console.log(errorService.error.error.message
-      )
-    }
-  );
-
+   
   }
 
-  ngOnInit() {
-    
-  this.servicio.getToken();
+  async ngOnInit() {
+
+  const token = await this.servicio.getTokenAsyn(); 
+
+  this.servicio.getNewRelease(token.access_token).subscribe( (data:any) => {
+    console.log(data);
+    this.nuevasCanciones = data;
+    this.loading = false;
+  }, (errorService) => {
+    this.error = true;
+    this.loading = false;
+    this.errorMsj = errorService.error.error.message; 
+    console.log(errorService.error.error.message
+    )
+  }
+);
+
  }
 
 }

@@ -12,10 +12,24 @@ export class SpotifyService {
   
    }
 
-   getQuery(query: string){
+  async otra(){ 
+    let tokenasyn = await this.getTokenAsyn();
 
-    let token = this.getToken();
-    console.log("el token generado es: "+token);
+    return tokenasyn.access_token; 
+   }
+
+    getQuery(query: string, prueba?){
+
+      let token = ""; 
+      if (prueba) {
+         token = prueba; 
+      }else {
+         token = this.getToken();
+      }
+
+ 
+
+    console.log("el token generado es: ",token);
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
@@ -25,9 +39,8 @@ export class SpotifyService {
     return this.http.get(url,{headers})
 
    }
-   getToken(){
 
-    
+   getToken(){
    const headers = new HttpHeaders({
     'Content-Type':'application/x-www-form-urlencoded'
     });
@@ -42,8 +55,26 @@ export class SpotifyService {
     return this.token;
     }
 
-   getNewRelease(){  
-    return this.getQuery('browse/new-releases').pipe( map ( data => data['albums'].items ));
+    async getTokenAsyn(): Promise<any> {
+
+ 
+
+      const headers = new HttpHeaders({
+        'Content-Type':'application/x-www-form-urlencoded'
+        });
+        
+        let body = `client_id=0a7e097439284671a4798edfc696c5da&client_secret=5a8947da16af42418e68da797ae494df&grant_type=client_credentials`;
+        const response = await this.http.post('https://accounts.spotify.com/api/token',body,{headers}).toPromise();
+
+        return response; 
+
+
+    
+     
+      
+    }
+   getNewRelease(token){  
+    return this.getQuery('browse/new-releases', token).pipe( map ( data => data['albums'].items ));
    }
 
    buscarArtistas(termino:string){
