@@ -1,0 +1,60 @@
+{
+    "records": [
+        {
+            "company": {
+                "id": 2,
+                "code": "my-holding",
+                "holdingId": 2,
+                "institutionId": 1,
+                "name": "My company",
+                "nationalId": "1930903",
+                "nationalIdCheckChar": "7"
+            },
+            "holdingName": "My holding",
+            "holdingId": 2,
+            "companyId": 2,
+            "totalRequests": 0,
+            "totalRepeatedRequests": 0,
+            "totalIVPRequests": 0,
+            "totalIVPSuccessfulRequests": 0,
+            "totalIVPFailedRequests": 0,
+            "totalCRPRequests": 0,
+            "totalCRPSuccessfulRequests": 0,
+            "totalCRPFailedRequests": 0,
+            "totalDSPRequests": 0,
+            "totalDSPSuccessfulRequests": 0,
+            "totalDSPFailedRequests": 0,
+            "totalSSCPRequests": 0,
+            "totalSSCPSuccessfulRequests": 0,
+            "totalSSCPFailedRequests": 0
+        },
+        {
+            "company": {
+                "id": 3,
+                "code": "COMPANY-XS",
+                "holdingId": 1,
+                "institutionId": 1,
+                "name": "My Company",
+                "nationalId": "0",
+                "nationalIdCheckChar": "Z"
+            },
+            "holdingName": "Azurian",
+            "holdingId": 1,
+            "companyId": 3,
+            "totalRequests": 0,
+            "totalRepeatedRequests": 0,
+            "totalIVPRequests": 0,
+            "totalIVPSuccessfulRequests": 0,
+            "totalIVPFailedRequests": 0,
+            "totalCRPRequests": 0,
+            "totalCRPSuccessfulRequests": 0,
+            "totalCRPFailedRequests": 0,
+            "totalDSPRequests": 0,
+            "totalDSPSuccessfulRequests": 0,
+            "totalDSPFailedRequests": 0,
+            "totalSSCPRequests": 0,
+            "totalSSCPSuccessfulRequests": 0,
+            "totalSSCPFailedRequests": 0
+        }
+    ]
+}
